@@ -1,4 +1,5 @@
 import Expenses from "./components/Expenses/Expenses";
+import NewExpense from "./components/NewExpense/NewExpense";
 
 const App = () => {
   const expenses = [
@@ -34,7 +35,7 @@ const App = () => {
 
     <div className="App">
       <header className="App-header">
-        <h2>Cijene osiguranja</h2>
+        <NewExpense/>
         <Expenses items={expenses} />
                
       </header>
