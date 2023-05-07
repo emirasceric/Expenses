@@ -1,18 +1,26 @@
 import "./NewExpense.css";
 
 import ExpenseForm from "./ExpenseForm";
-import "./NewExpense.css"
+import "./NewExpense.css";
 
-const NewExpense = () => {
+// NewExpense.js   se nalazi forma za dodavanje novih troškova.
+// Kada korisnik unese podatke u formu i klikne gumb, 
+// saveExpenseDataHandler funkcija se poziva i stvara se novi objekt expenseData
+// koji se proslijeđuje funkciji addExpenseHandler koja se nalazi u glavnoj komponenti (App.js).
 
+const NewExpense = (props) => {
+  const saveExpenseDataHandler = (enteredExpenseData) => {
+    const expenseData = {
+      ...enteredExpenseData,
+      id: Math.random().toString(),
+    };
+    props.onAddExpense(expenseData);
+  };
 
   return (
     <div className="new-expense">
-
-   <ExpenseForm/>
-
-
+      <ExpenseForm onSaveExpenseData={saveExpenseDataHandler} />
     </div>
-  )
+  );
 };
-export default  NewExpense;
+export default NewExpense;

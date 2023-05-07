@@ -1,5 +1,12 @@
 import "./ExpenseDate.css";
 
+
+// Komponenta prima jedan props objekt koji sadrži datum za koji se prikazuje trošak.
+// Ova komponenta koristi JavaScript Date objekt za obradu datuma i formatira ga pomoću toLocaleString
+// metode kako bi se dobio mjesec, dan i godina u željenom formatu.
+
+// ova komponenta se izvozi i može se koristiti u drugim dijelovima aplikacije gdje se želi prikazati datum troška.
+
 const ExpenseDate = (props) => {
 
     const month = props.date.toLocaleString("en-US", {month: "long" });

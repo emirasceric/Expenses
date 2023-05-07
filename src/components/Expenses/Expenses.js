@@ -1,39 +1,58 @@
 import ExpenseItem from "./ExpenseItem";
+import { useState } from "react";
 import Card from "../UI/Card";
 import "./Expenses.css";
+import ExpensesFilter from "./ExpenseFilter.js";
+
+
+// Expenses.js prikazuje sve postojeće troškove
+// koji se proslijeđuju kao props.
 
 const Expenses = (props) => {
+
+  const [filteredYear, setFilteredYeaer] = useState("2023")
+
+  const filterChangeHandler = selectedYear =>{
+     setFilteredYeaer(selectedYear);
+        
+      
+  };
 return (
 
+  <div>
+  
  <Card className="expenses">
+  
+      <ExpensesFilter selected={filteredYear}  onChangeFilter={filterChangeHandler}/>
 
-<ExpenseItem
+      <ExpenseItem
           title={props.items[0].title}
           amount={props.items[0].amount}
           date={props.items[0].date}
-        ></ExpenseItem>
+      ></ExpenseItem>
 
-        <ExpenseItem
+      <ExpenseItem
           title={props.items[1].title}
           amount={props.items[1].amount}
           date={props.items[1].date}
-        ></ExpenseItem>
+      ></ExpenseItem>
 
-        <ExpenseItem
+      <ExpenseItem
           title={props.items[2].title}
           amount={props.items[2].amount}
           date={props.items[2].date}
-        ></ExpenseItem>
+      ></ExpenseItem>
 
-        <ExpenseItem
+      <ExpenseItem
           title={props.items[3].title}
           amount={props.items[3].amount}
           date={props.items[3].date}
-        ></ExpenseItem>
+      ></ExpenseItem>
 
 
 
 </Card>
+</div>
 );
 }
 

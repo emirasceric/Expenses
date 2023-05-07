@@ -31,11 +31,16 @@ const App = () => {
    
   ];
 
+  const addExpenseHandler= expense => {
+    console.log("in Ap JS");
+    console.log(expense);
+  }
+
   return (
 
     <div className="App">
       <header className="App-header">
-        <NewExpense/>
+        <NewExpense onAddExpense={addExpenseHandler}/>
         <Expenses items={expenses} />
                
       </header>
@@ -44,3 +49,39 @@ const App = () => {
 }
 
 export default App;
+
+
+
+
+// Ovaj kod je React aplikacija koja prikazuje liste troškova
+// i ima formu za dodavanje novih troškova.
+// Aplikacija je podijeljena u nekoliko dijelova, svaki sa svojom funkcijom.
+
+
+// U glavnoj komponenti (App.js) se nalaze dvije komponente: Expenses i NewExpense.
+// Expenses komponenta prikazuje postojeće troškove, 
+// NewExpense komponenta prikazuje formu za dodavanje novih troškova.
+
+
+// Komponenta Card.js predstavlja prikazivanje kartice sa sadržajem.
+
+// NewExpense.js   se nalazi forma za dodavanje novih troškova.
+// Kada korisnik unese podatke u formu i klikne gumb, 
+// saveExpenseDataHandler funkcija se poziva i stvara se novi objekt expenseData
+// koji se proslijeđuje funkciji addExpenseHandler koja se nalazi u glavnoj komponenti (App.js).
+
+
+// ExpenseForm.js prikazuje formu za unos podataka.
+// Uneseni podaci se spremaju u state pomoću React-ove useState kuke
+// nakon klika na gumb submit, podaci se proslijeđuju gore navedenoj funkciji za spremanje podataka.
+
+
+// Expenses.js prikazuje sve postojeće troškove
+// koji se proslijeđuju kao props.
+
+
+//ExpenseItem.js prikazuje pojedinačni trošak.
+
+
+// Ukratko, aplikacija prikazuje postojeće troškove
+// i ima formu za dodavanje novih troškova koji se pohranjuju u state.
